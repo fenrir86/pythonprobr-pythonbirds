@@ -47,6 +47,18 @@
     >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     'Norte'
+      >>> carro = Carro(direcao, motor)
+    >>> carro.calcular_velocidade()
+    0
+    >>> carro.acelerar()
+    >>> carro.calcular_velocidade()
+    1
+    >>> carro.acelerar()
+    >>> carro.calcular_velocidade()
+    2
+    >>> carro.frear()
+    >>> carro.calcular_velocidade()
+    0
 """
 class Motor:
 
@@ -55,30 +67,44 @@ class Motor:
 
     def acelerar(self):
         self.velocidade += 1
+
     def frear(self):
         self.velocidade -=2
         self.velocidade = max(0,self.velocidade)
 
 class Direcao:
 
-    direita = ['Norte','Leste','Sul','Oeste']
-    def __init__(self,valor):
-        self.valor = valor
-
-    def girar_a_direita(self):
-        cont = 0
-        #valor=self.valor
-        while (self.direita[cont]==0):
-            direcao.valor = self.direita[cont]
-            cont +=1
-
-
-    def girar_a_esquerda(self):
+    posicao = ['Norte','Leste','Sul','Oeste','Norte']
+    valor = posicao[0]
+    cont = 0
+    def __init__(self):
         pass
 
+    def girar_a_direita(self):
+        self.cont += 1
+        self.valor = self.posicao[self.cont]
+    def girar_a_esquerda(self):
+        self.cont -= 1
+        self.valor = self.posicao[self.cont]
 
-if __name__ == '__main__':
+class Carro:
+    direcao = Direcao()
+    motor = Motor()
+
+    def __init__(self):
+        motor = self.motor.velocidade
+        self.direcao = direcao
+
+    def calcular_velocidade(self):
+        return motor
+
+
+
+
+
+"""if __name__ == '__main__':
     motor = Motor()
     print(motor.velocidade)
     print(motor.acelerar())
     direcao= Direcao()
+"""
