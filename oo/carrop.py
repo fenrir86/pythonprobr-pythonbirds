@@ -110,18 +110,24 @@ class Motor:
 
 class Direcao:
 
-    posicao = ['Norte','Leste','Sul','Oeste','Norte']
-    valor = posicao[0]
+    posicao1 = ['Norte','Leste','Sul','Oeste','Norte']
+    posicao2 = ['Norte', 'Leste', 'Sul', 'Oeste']
+    valor = posicao1[0]
+    valor = posicao2[0]
     cont = 0
     def __init__(self):
         pass
 
     def girar_a_direita(self):
-        self.cont += 1
-        self.valor = self.posicao[self.cont]
+
+        self.cont = self.cont + 1
+        self.valor = self.posicao1[self.cont]
+
+
     def girar_a_esquerda(self):
-        self.cont -= 1
-        self.valor = self.posicao[self.cont]
+        self.cont -=1
+        self.valor = self.posicao2[self.cont]
+
 
 
 

@@ -11,9 +11,16 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
+
+
+class Homem(Pessoa):
+    pass
+
 if __name__ == '__main__':
     p = Pessoa()
-    filho = Pessoa(nome='Emilio')
+    filho = Homem(nome='Emilio')
     mae =  Pessoa(filho, nome='Ivone')
    # print(Pessoa.cumprimentar(p))
    # print(id(p))
@@ -22,3 +29,6 @@ if __name__ == '__main__':
     print(p.nome,p.idade)
     for familia in mae.filhos:
         print(familia.nome)
+    pessoa= Pessoa('Anonimo')
+    print(isinstance(pessoa,Pessoa))
+    print(isinstance(pessoa, Homem))
